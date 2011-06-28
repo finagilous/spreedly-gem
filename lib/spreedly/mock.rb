@@ -52,7 +52,8 @@ module Spreedly
       :feature_level => proc{""},
       :on_trial => proc{false},
       :recurring => proc{false},
-      :eligible_for_free_trial => proc{false}
+      :eligible_for_free_trial => proc{false},
+      :lifetime_subscription => proc{false},
     }
 
     def self.wipe! # :nodoc: all
@@ -155,7 +156,9 @@ module Spreedly
   class SubscriptionPlan < Resource
     self.attributes = {
       :plan_type => proc{'regular'},
-      :feature_level => proc{''}
+      :feature_level => proc{''},
+      :enabled => proc{true},
+      :price => proc{5.00},
     }
     
     def self.all
